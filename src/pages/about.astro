@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 const title = 'About Me';
 
 const identity = {
@@ -13,7 +15,7 @@ const happy = true;
 const finished = false;
 const goal = 2;
 
-const titleColor = 'blueviolet';
+const skillColor = 'royalblue';
 ---
 
 <html lang="en">
@@ -23,13 +25,12 @@ const titleColor = 'blueviolet';
     <meta name="viewport" content="width=device-width"/>
     <meta name="generator" content={Astro.generator}/>
     <title>{title}</title>
-    <style define:vars = {{titleColor}}>
+    <style define:vars = {{skillColor}}>
         h1 {
-            color: var(--titleColor);
             font-size: 4rem;
         }
         .skill {
-            color: royalblue;
+            color: var(--skillColor);
             font-weight: bold;
         }
     </style>
