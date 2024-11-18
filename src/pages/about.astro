@@ -12,6 +12,8 @@ const identity = {
 const happy = true;
 const finished = false;
 const goal = 2;
+
+const titleColor = 'blueviolet';
 ---
 
 <html lang="en">
@@ -21,6 +23,16 @@ const goal = 2;
     <meta name="viewport" content="width=device-width"/>
     <meta name="generator" content={Astro.generator}/>
     <title>{title}</title>
+    <style define:vars = {{titleColor}}>
+        h1 {
+            color: var(--titleColor);
+            font-size: 4rem;
+        }
+        .skill {
+            color: royalblue;
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
@@ -49,7 +61,7 @@ const goal = 2;
 My skills are:
 <ul>
     {identity.skills.map((skill) =>
-        <li>{skill}</li>
+        <li class="skill">{skill}</li>
     )}
 </ul>
 
