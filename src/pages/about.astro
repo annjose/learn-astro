@@ -45,11 +45,12 @@ const goal = 2;
         <li>Two of my hobbies are {identity.hobbies[0]} and {identity.hobbies[1]}.</li>
     }
 </ul>
+
 My skills are:
 <ul>
-    {identity.skills.map((skill, index) => (
-        <li key={index}>{skill}</li>
-    ))}
+    {identity.skills.map((skill) =>
+        <li>{skill}</li>
+    )}
 </ul>
 
 {happy && <p> I am happy to be doing this tutorial and learning Astro.</p>}
