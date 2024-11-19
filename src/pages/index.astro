@@ -1,9 +1,17 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-
+import Greeting from "../components/Greeting.tsx";
 const title = 'Home';
 ---
 
 <BaseLayout pageTitle=`${title}`>
     <h2>Awesome Astro</h2>
+
+    <!--The following line will not work because client:load is missing, which makes the component non-hydrated.-->
+    <!--<Greeting messages={['Hello', 'Hi', 'Hey', 'Howdy']} />-->
+
+    <!--The following line will work because client:load is present, which makes the component hydrated.-->
+    <!--Hydrated means Astro sends the JS from server to client and reruns it on the client. -->
+    <Greeting client:load messages={['Hello', 'Hi', 'Hey', 'Howdy']} />
+
 </BaseLayout>
