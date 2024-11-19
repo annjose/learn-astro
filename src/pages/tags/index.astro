@@ -29,10 +29,6 @@ const uniqueTags = [...new Set(allPosts.flatMap(post => post.frontmatter.tags))]
     </div>
 </BaseLayout>
 <style>
-    a {
-        color: #00539F;
-    }
-
     .tags {
         display: flex;
         flex-wrap: wrap;
@@ -45,5 +41,8 @@ const uniqueTags = [...new Set(allPosts.flatMap(post => post.frontmatter.tags))]
         padding: .5em 1em;
         font-size: 1.15em;
         background-color: #F8FCFD;
+    }
+    .tag a {
+        color: #00539F;
     }
 </style>
