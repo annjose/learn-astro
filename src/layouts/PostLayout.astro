@@ -1,0 +1,12 @@
+---
+// take the frontmatter from the prop - Note - it is frontmatter, not camel case frontMatter.
+const {frontmatter} = Astro.props;
+---
+
+<h1>{frontmatter.title}</h1>
+<p>Written by <b>{frontmatter.author}</b>. Published on: {frontmatter.pubDate.toString().slice(0, 10)}</p>
+<p>{frontmatter.tags.map((tag: string) => `#${tag}  `)}</p>
+<p><em>{frontmatter.description}</em></p>
+
+<img src=`${frontmatter.image.url}` alt={frontmatter.image.alt}/>
+<slot/>
