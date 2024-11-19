@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogPost from "../../components/BlogPost.astro";
+
+const allPosts = await Astro.glob('../posts/*.md');
+const uniqueTags = [...new Set(allPosts.flatMap(post => post.frontmatter.tags))];
+---
+
+<BaseLayout pageTitle='Tags'>
+    <div>
+      {uniqueTags.map(tag =>
+              <h3><a href={`/tags/${tag}`}>{tag}</a></h3>
+              <ul>
+                {
+                  allPosts.filter(post =>
+                    post.frontmatter.tags.includes(tag)).map(post =>
+                          <BlogPost url={post.url} title={post.frontmatter.title}/>)
+                }
+              </ul>
+      )}
+    </div>
+</BaseLayout>
