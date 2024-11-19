@@ -16,7 +16,7 @@ export async function getStaticPaths(): Promise<Array<{ params: { tag: string },
 }
 
 const {tag} = Astro.params;
-const {posts} = Astro.props;
+const {posts} = Astro.props as { posts: any[] };
 
 ---
 
