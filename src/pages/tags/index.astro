@@ -7,16 +7,43 @@ const uniqueTags = [...new Set(allPosts.flatMap(post => post.frontmatter.tags))]
 ---
 
 <BaseLayout pageTitle='Tags'>
+    <h2>Tags only</h2>
+    <div class="tags">
+        {uniqueTags.map(tag =>
+          <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
+        )}
+    </div>
+
+    <h2> Tags + Posts</h2>
     <div>
       {uniqueTags.map(tag =>
-              <h3><a href={`/tags/${tag}`}>{tag}</a></h3>
-              <ul>
+              <p><a href={`/tags/${tag}`}>{tag}</a></p>
+              <p>
                 {
                   allPosts.filter(post =>
                     post.frontmatter.tags.includes(tag)).map(post =>
                           <BlogPost url={post.url} title={post.frontmatter.title}/>)
                 }
-              </ul>
+              </p>
       )}
     </div>
 </BaseLayout>
+<style>
+    a {
+        color: #00539F;
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .tag {
+        margin: 0.25em;
+        border: dotted 1px #a1a1a1;
+        border-radius: .5em;
+        padding: .5em 1em;
+        font-size: 1.15em;
+        background-color: #F8FCFD;
+    }
+</style>
