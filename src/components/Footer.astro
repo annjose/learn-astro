@@ -5,14 +5,15 @@ import Social from "./Social.astro";
 <style>
     footer {
         display: flex;
-        gap: 1rem;
+        flex-direction: column;
+        gap: 0.1rem;
         margin-top: 2rem;
     }
 </style>
 
 <footer>
+    <p>See the <a href="/rss.xml">RSS feed </a>for this blog.</p>
     <p>
-        Learn more about my projects.
         <Social name="GitHub" domain="github" username="annjose"/>
         <Social name="Twitter" domain="twitter" username="astrodotbuild"/>
         <Social name="YouTube" domain="youtube" username="astrodotbuild"/>
