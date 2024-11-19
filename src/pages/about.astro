@@ -1,16 +1,14 @@
 ---
-import '../styles/global.css';
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const title = 'About Me';
 
 const identity = {
-    name: 'Ann',
-    country: 'Canada',
-    occupation: 'Software Developer',
-    hobbies: ['reading', 'coding', 'hiking'],
-    skills: ['JavaScript', 'React', 'Next.js', 'Coding']
+  name: 'Ann',
+  country: 'Canada',
+  occupation: 'Software Developer',
+  hobbies: ['reading', 'coding', 'hiking'],
+  skills: ['JavaScript', 'React', 'Next.js', 'Coding']
 };
 
 const happy = true;
@@ -20,57 +18,44 @@ const goal = 2;
 const skillColor = 'royalblue';
 ---
 
-<html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-    <meta name="viewport" content="width=device-width"/>
-    <meta name="generator" content={Astro.generator}/>
-    <title>{title}</title>
-    <style define:vars = {{skillColor}}>
-        h1 {
-            font-size: 4rem;
-        }
-        .skill {
-            color: var(--skillColor);
-            font-weight: bold;
-        }
-    </style>
-</head>
+<BaseLayout pageTitle=`${title}`>
+    <h2>... and my new Astro site!</h2>
 
-<body>
+    <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one
+        I
+        built myself!</p>
 
-<Header />
+    <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is
+        going!</p>
 
-<h1>{title}</h1>
-<h2>... and my new Astro site!</h2>
+    <p>Here are a few facts about me:</p>
+    <ul>
+        <li>My name is <b>{identity.name}</b>.</li>
+        <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
+      {identity.hobbies.length >= 2 &&
+              <li>Two of my hobbies are {identity.hobbies[0]} and {identity.hobbies[1]}.</li>
+      }
+    </ul>
 
-<p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I
-    built myself!</p>
+    My skills are:
+    <ul>
+      {identity.skills.map((skill) =>
+              <li class="skill">{skill}</li>
+      )}
+    </ul>
 
-<p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
+  {happy && <p> I am happy to be doing this tutorial and learning Astro.</p>}
+  {finished ? <p> Yay! I have finished the tutorial</p> : <p>I have not finished it yet.</p>}
+    <p> My goal is to complete this in {goal} days.</p>
 
-<p>Here are a few facts about me:</p>
-<ul>
-    <li>My name is <b>{identity.name}</b>.</li>
-    <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
-    {identity.hobbies.length >= 2 &&
-        <li>Two of my hobbies are {identity.hobbies[0]} and {identity.hobbies[1]}.</li>
+</BaseLayout>
+
+<style is:global define:vars={{skillColor}}>
+    //h1 {
+    //    font-size: 4rem;
+    //}
+    .skill {
+        color: var(--skillColor);
+        font-weight: bold;
     }
-</ul>
-
-My skills are:
-<ul>
-    {identity.skills.map((skill) =>
-        <li class="skill">{skill}</li>
-    )}
-</ul>
-
-{happy && <p> I am happy to be doing this tutorial and learning Astro.</p>}
-{finished ? <p> Yay! I have finished the tutorial</p> : <p>I have not finished it yet.</p>}
-<p> My goal is to complete this in {goal} days.</p>
-
-<Footer />
-</body>
-
-</html>
+</style>
