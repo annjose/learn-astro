@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
 
 const title = 'About Me';
 
@@ -38,9 +40,7 @@ const skillColor = 'royalblue';
 
 <body>
 
-<a href="/">Home</a>
-<a href="/about">About</a>
-<a href="/blog">Blog</a>
+<Navigation/>
 
 <h1>{title}</h1>
 <h2>... and my new Astro site!</h2>
@@ -70,6 +70,7 @@ My skills are:
 {finished ? <p> Yay! I have finished the tutorial</p> : <p>I have not finished it yet.</p>}
 <p> My goal is to complete this in {goal} days.</p>
 
+<Footer />
 </body>
 
 </html>
