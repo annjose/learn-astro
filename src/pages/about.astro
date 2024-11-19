@@ -12,7 +12,7 @@ const identity = {
 };
 
 const happy = true;
-const finished = false;
+const finished = true;
 const goal = 2;
 
 const skillColor = 'royalblue';
@@ -45,7 +45,7 @@ const skillColor = 'royalblue';
     </ul>
 
   {happy && <p> I am happy to be doing this tutorial and learning Astro.</p>}
-  {finished ? <p> Yay! I have finished the tutorial</p> : <p>I have not finished it yet.</p>}
+  {finished ? <p> Yay! I have finished the tutorial. 🎉</p> : <p>I have not finished it yet.</p>}
     <p> My goal is to complete this in {goal} days.</p>
 
 </BaseLayout>
